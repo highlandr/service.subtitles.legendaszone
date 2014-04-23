@@ -26,7 +26,6 @@ import xbmcvfs
 import cookielib
 import urllib2
 from operator import itemgetter, attrgetter
-#import operator
 
 __addon__ = xbmcaddon.Addon()
 __author__     = __addon__.getAddonInfo('author')
@@ -44,16 +43,13 @@ sys.path.append (__resource__)
 
 main_url = "http://www.legendas-zone.org/"
 debug_pretext = "LegendasZone"
-subext = ['srt', 'aas', 'ssa', 'sub', 'smi']
-sub_ext = "srt,aas,ssa,sub,smi"
-packext = ['rar', 'zip']
 
 
 MAIN_SUBDIVX_URL = "http://www.legendas-zone.org/"
 SEARCH_PAGE_URL = MAIN_SUBDIVX_URL + "modules.php?name=Downloads&file=jz&d_op=search_next&order=&form_cat=28&page=%(page)s&query=%(query)s"
 
 INTERNAL_LINK_URL = "plugin://%(scriptid)s/?action=download&%(id)s&filename=%(filename)s"
-SUB_EXTS = ['srt', 'sub', 'txt']
+SUB_EXTS = ['srt', 'sub', 'txt', 'aas', 'ssa', 'smi']
 HTTP_USER_AGENT = "User-Agent=Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.3) Gecko/20100401 Firefox/3.6.3 ( .NET CLR 3.5.30729)"
 
 #Grabbing login and pass from xbmc settings
@@ -292,6 +288,8 @@ def getallsubs(searchstring, languageshort, languagelong, file_original_path, se
                                 languageshort = "pb"
                             subtitles_list.append({'rating': str(downloads), 'no_files': no_files, 'id': id, 'filename': filename, 'desc': desc, 'sync': sync, 'hits' : hits, 'language_short': languageshort, 'language_name': languagelong})
                         page1 = page1 + 1
+                        if languageshort == "pb":
+                            languageshort = "br"
                         if languageshort == "pt" or languageshort == "br" or languageshort == "en" or languageshort == "es":
                             content1 = opener.open(main_url + "legendas.php?l=" + languageshort + "&imdb=" + imdb + "&page=" + str(page1))
                         else:
@@ -390,18 +388,6 @@ def getallsubs(searchstring, languageshort, languagelong, file_original_path, se
 #               content1 = content1.read().decode('latin1')
 #               #For DEBUG only uncomment next line
 
-
-##### ANNOYING #####
-    #if subtitles_list == []:
-        #msgnote(debug_pretext,"No sub in "  + languagelong + "!", 2000)
-        #msgnote(debug_pretext,"Try manual or parent dir!", 2000)
-    #elif subtitles_list != []:
-    #   lst = str(subtitles_list)
-    #   if languagelong in lst:
-    #       msgnote(debug_pretext,"Found sub(s) in "  + languagelong + ".", 2000)
-    #   else:
-            #msgnote(debug_pretext,"No sub in "  + languagelong + "!", 2000)
-            #msgnote(debug_pretext,"Try manual or parent dir!", 2000)
 
     #Bubble sort, to put syncs on top
     for n in range(0,len(subtitles_list)):
