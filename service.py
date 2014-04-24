@@ -545,19 +545,9 @@ def Download(id, filename):
     xbmcvfs.mkdirs(__temp__)
 
     subtitles_list = []
-#    username = __addon__.getSetting( 'LDuser' )
-#    password = __addon__.getSetting( 'LDpass' )
-#    login_postdata = urllib.urlencode({'username' : username, 'user_password' : password, 'op' : 'login'})
-#    cj = cookielib.CookieJar()
-#    my_opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
-#    my_opener.addheaders = [('Referer', 'http://www.legendasdivx.com/modules.php?name=Your_Account')]
-#    urllib2.install_opener(my_opener)
-#    request = urllib2.Request('http://www.legendasdivx.com/modules.php?name=Your_Account', login_postdata)
-#    response = urllib2.urlopen(request).read()
 
     content = get_download(main_url+'fazendologin.php', main_url+'downloadsub.php', id)
 
-#    content = my_opener.open('http://www.legendasdivx.com/modules.php?name=Downloads&d_op=getit&lid=' + id + '&username=' + username)
     content = content.read()
     if content is not None:
         header = content[:4]
