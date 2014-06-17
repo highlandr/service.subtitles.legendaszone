@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Service Legendas-Zone.org version 0.1.0
+# Service Legendas-Zone.org version 0.1.1
 # Code based on Undertext (FRODO) service
 # Coded by HiGhLaNdR@OLDSCHOOL
 # Ported to Gotham by HiGhLaNdR@OLDSCHOOL
-# Help by VaRaTRoN
+# Help by VaRaTRoN and Mafarricos
 # Bugs & Features to highlander@teknorage.com
 # http://www.teknorage.com
 # License: GPL v2
