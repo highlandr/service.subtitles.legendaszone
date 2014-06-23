@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Service Legendas-Zone.org version 0.1.1
+# Service Legendas-Zone.org version 0.1.2
 # Code based on Undertext (FRODO) service
 # Coded by HiGhLaNdR@OLDSCHOOL
 # Ported to Gotham by HiGhLaNdR@OLDSCHOOL
